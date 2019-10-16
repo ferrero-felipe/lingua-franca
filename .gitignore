@@ -3,3 +3,4 @@ test
 __pycache__
 data/audio
 data/samples
+data/database
