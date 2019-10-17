@@ -22,7 +22,7 @@ def splitFile(audio,len_miliseconds=5000):
 
 def getAudio(file):
     """Loads given audio file"""
-    data, sampling_rate = librosa.load(file,res_type='kaiser_fast')
+    data, sampling_rate = librosa.load(file, sr=None ,res_type='kaiser_fast')
     return data, sampling_rate
 
 def getMFCC(row):
@@ -55,3 +55,12 @@ def featureExtraction(directory='../data/samples'):
     print('Saving database...')
     df.to_pickle('../data/database/sound_db.pkl')
     print('Done!')
+
+def getMax(values):
+    for i in range(4):
+        if values[i] == max(values):
+            values[i] = 1
+        else:
+            values[i] = 0
+    return values
+
